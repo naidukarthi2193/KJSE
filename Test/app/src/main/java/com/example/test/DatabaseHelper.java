@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(R.string.drop_Table + Table_Name);
+        db.execSQL("DROP TABLE IF EXISTS" + Table_Name);
         onCreate(db);
     }
 
