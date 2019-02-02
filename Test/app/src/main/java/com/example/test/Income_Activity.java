@@ -50,8 +50,7 @@ public class Income_Activity extends AppCompatActivity {
 
     public void viewAll()
     {
-        btnviewAll.setOnClickListener(
-                new View.OnClickListener() {
+        btnviewAll.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
                         Cursor res = myDb.getAllData();
