@@ -11,9 +11,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".List_Activity"></activity>
         <activity android:name=".Savings_Activity" />
-        <activity android:name=".Income_Activity" />
         <activity android:name=".Expenses_Activity" />
+
+        <activity android:name=".Income_Activity"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
