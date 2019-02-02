@@ -4,12 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lists.List_Activity">
-
-
-
+    tools:context=".Lists.Expenses_List">
     <ListView
-        android:id="@+id/income_ListView"
+        android:id="@+id/expenses_list_1"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_margin="20dp"
@@ -22,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Total Expenses are :"
         android:layout_margin="15dp"
-        app:layout_constraintTop_toBottomOf="@id/income_ListView"
+        app:layout_constraintTop_toBottomOf="@id/expenses_list_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
 
@@ -33,11 +30,10 @@
         android:id="@+id/total_Exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/income_ListView"
+        app:layout_constraintTop_toBottomOf="@+id/expenses_list_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/Heading_exp"
 
         />
-
 </android.support.constraint.ConstraintLayout>

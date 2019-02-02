@@ -18,9 +18,6 @@ public class DatabaseHelper1 extends SQLiteOpenHelper {
     public static final String COl_2 = "SOURCES";
     public static final String Col_3 = "VALUE";
     public static final String Col_4 ="PRIO";
-
-
-
     public DatabaseHelper1(Context context) {
         super(context, Database_Name, null, 1);
 
@@ -73,7 +70,6 @@ public class DatabaseHelper1 extends SQLiteOpenHelper {
         db.update(Table_Name,contentValues,"ID = ?",new String[] { id });
         return true;
     }
-
     public Integer DeleteData(String id)
     {
         SQLiteDatabase db=this.getWritableDatabase();

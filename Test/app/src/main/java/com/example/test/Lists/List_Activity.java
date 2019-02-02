@@ -1,9 +1,10 @@
-package com.example.test.Activities;
+package com.example.test.Lists;
 
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.test.Adapters.Income_adapter;
 import com.example.test.DbHelpers.DatabaseHelper;
@@ -14,8 +15,6 @@ import java.util.ArrayList;
 
 public class List_Activity extends AppCompatActivity {
     private static Double sum;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +36,7 @@ public class List_Activity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.income_ListView);
         listView.setAdapter(inc_adpt);
 
-
-
-
-
-
+        TextView totexp= (TextView)findViewById(R.id.total_Exp);
+        totexp.setText(String.valueOf(sum));
     }
 }
