@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.Activities;
 
 import android.animation.FloatArrayEvaluator;
 import android.app.FragmentTransaction;
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.text.DecimalFormat;
 import android.view.View.OnFocusChangeListener;
+
+import com.example.test.R;
+
 import java.text.NumberFormat;
 
 

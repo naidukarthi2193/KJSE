@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.Activities;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.test.DbHelpers.DatabaseHelper;
+import com.example.test.R;
 
 public class Income_Activity extends AppCompatActivity {
 

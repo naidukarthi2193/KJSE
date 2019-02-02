@@ -1,10 +1,9 @@
-package com.example.test;
+package com.example.test.Activities;
 
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.test.DbHelpers.DatabaseHelper1;
+import com.example.test.R;
 
 public class Expenses_Activity extends AppCompatActivity {
 
@@ -61,7 +63,7 @@ public class Expenses_Activity extends AppCompatActivity {
         addDatabut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = myDb1.insertData(expenseName.getText().toString(),Values=Double.parseDouble(expensevalues.getText().toString()));
+                boolean isInserted = myDb1.insertData(expenseName.getText().toString(),Values=Double.parseDouble(expensevalues.getText().toString()),prio);
                 if(isInserted == true)
                     Toast.makeText(getBaseContext(),"Data is Inserted",Toast.LENGTH_LONG).show();
                 else
@@ -69,50 +71,14 @@ public class Expenses_Activity extends AppCompatActivity {
             }
         });
 
-        viewAll();
 
 
-    }
-
-
-    public void viewAll()
-    {
-        btnviewAll.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Cursor res = myDb1.getAllSortedData();
-                        if(res.getCount() == 0)
-                        {
-                            //show message error
-                            showMessage("Error404","No Data Found");
-                            return;
-                        }
-
-                        StringBuffer buffer = new StringBuffer();
-                        while(res.moveToNext())
-                        {
-                            buffer.append("Id : " + res.getString(0) + "\n");
-                            buffer.append("Expenses : " + res.getString(1) + "\n");
-                            buffer.append("Values : " + res.getDouble(2) + "\n\n");
-                            sum = sum + res.getDouble(2);
-                        }
-                        //show all data
-                        showMessage("Data",buffer.toString());
-                        Toast.makeText(getBaseContext(),"Total Value is " + sum,Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
 
     }
 
-    public void showMessage(String title,String Message)
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
-    }
+
+
+
+
 
 }

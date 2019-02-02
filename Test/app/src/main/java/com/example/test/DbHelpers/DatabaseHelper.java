@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.DbHelpers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,23 +8,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import javax.xml.transform.Source;
 
-public class DatabaseHelper1 extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String Database_Name = "EXPENSE.db";
-    public static final String Table_Name = "EXPENSE_TABLE";
+    public static final String Database_Name = "INCOME.db";
+    public static final String Table_Name = "INCOME_TABLE";
     public static final String Col_1 = "ID";
     public static final String COl_2 = "SOURCES";
     public static final String Col_3 = "VALUE";
 
 
-    public DatabaseHelper1(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, Database_Name, null, 1);
 
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db1) {
-        db1.execSQL("create table " + Table_Name + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,SOURCES TEXT,VALUE DOUBLE)");
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("create table " + Table_Name + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,SOURCES TEXT,VALUE DOUBLE)");
     }
 
     @Override
@@ -53,16 +53,6 @@ public class DatabaseHelper1 extends SQLiteOpenHelper {
         return res;
     }
 
-    public Cursor getAllSortedData()
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
-        Cursor res = db.rawQuery( "SELECT  * FROM " + WORD_LIST_TABLE +
-                " ORDER BY " + KEY_WORD + " ASC " +
-                "LIMIT " + position + ",1";
-
-
-        return res;
-    }
 
     public Boolean updateData(String id,String name, double values)
     {

@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.test.R;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
 
     private TextView expenses;
     private TextView Income;
     private TextView Savings;
-    private TextView List;
+    private TextView Expense_List;
 
 
     @Override
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         expenses=(TextView)findViewById(R.id.expenses);
         Income=(TextView)findViewById(R.id.income);
         Savings=(TextView)findViewById(R.id.savings);
-        List=(TextView)findViewById(R.id.list);
+        Expense_List=(TextView)findViewById(R.id.expense_list);
 
         expenses.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(savingsIntent);
             }
         });
-        List.setOnClickListener(new View.OnClickListener() {
+        Expense_List.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent listIntent = new Intent(MainActivity.this,List_Activity.class);

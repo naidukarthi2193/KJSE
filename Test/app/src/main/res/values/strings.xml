@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Test</string>
     <string name="drop_Table">DROP TABLE IF EXSISTS</string>
+    <string name="drop_table">DROP TABLE IF EXISTS</string>
 
     <string-array name="expense_list">
         <item>Emergency</item>

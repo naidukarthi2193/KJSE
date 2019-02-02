@@ -1,16 +1,16 @@
-package com.example.test;
+package com.example.test.Activities;
 
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.test.Adapters.Income_adapter;
+import com.example.test.DbHelpers.DatabaseHelper;
 import com.example.test.Model.Income_Model;
+import com.example.test.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class List_Activity extends AppCompatActivity {
     private static Double sum;
