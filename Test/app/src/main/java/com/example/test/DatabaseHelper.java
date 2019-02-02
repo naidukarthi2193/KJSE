@@ -23,24 +23,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + Table_Name + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,SOURCES TEXT,VALUE DOUBLE)");
+    public void onCreate(SQLiteDatabase db1) {
+        db1.execSQL("create table " + Table_Name + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,SOURCES TEXT,VALUE DOUBLE)");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS" + Table_Name);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase db1, int oldVersion, int newVersion) {
+        db1.execSQL("DROP TABLE IF EXISTS" + Table_Name);
+        onCreate(db1);
     }
 
     public Boolean insertData(String source, double values)
     {
-        SQLiteDatabase db=this.getWritableDatabase();
+        SQLiteDatabase db1=this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COl_2, source);
 
         contentValues.put(Col_3,values);
-        long result = db.insert(Table_Name, null, contentValues);
+        long result = db1.insert(Table_Name, null, contentValues);
         if(result == -1)
             return false;
         else
@@ -48,27 +48,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public Cursor getAllData()
     {
-        SQLiteDatabase db=this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+Table_Name,null);
+        SQLiteDatabase db1=this.getWritableDatabase();
+        Cursor res = db1.rawQuery("select * from "+Table_Name,null);
         return res;
     }
 
 
     public Boolean updateData(String id,String name, double values)
     {
-        SQLiteDatabase db=this.getWritableDatabase();
+        SQLiteDatabase db1=this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col_1,id);
         contentValues.put(COl_2,name);
         contentValues.put(Col_3,values);
 
-        db.update(Table_Name,contentValues,"ID = ?",new String[] { id });
+        db1.update(Table_Name,contentValues,"ID = ?",new String[] { id });
         return true;
     }
 
     public Integer DeleteData(String id)
     {
-        SQLiteDatabase db=this.getWritableDatabase();
-        return db.delete(Table_Name,"ID = ?",new String[] { id });
+        SQLiteDatabase db1=this.getWritableDatabase();
+        return db1.delete(Table_Name,"ID = ?",new String[] { id });
     }
 }

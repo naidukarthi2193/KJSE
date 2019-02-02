@@ -23,7 +23,7 @@ public class Expenses_Activity extends AppCompatActivity {
     private EditText expensevalues;
     Button btnviewAll;
     private Button addDatabut;
-    DatabaseHelper myDb1;
+    DatabaseHelper1 myDb1;
  double sum=0;
 
     @Override
@@ -34,7 +34,7 @@ public class Expenses_Activity extends AppCompatActivity {
         expenseName=(EditText)findViewById(R.id.Sources);
         expensevalues=(EditText)findViewById(R.id.expenses_values);
         addDatabut=(Button)findViewById(R.id.saveButton);
-        myDb1 = new DatabaseHelper(this);
+        myDb1 = new DatabaseHelper1(this);
 
         btnviewAll=(Button)findViewById(R.id.button_viewAll);
 
@@ -81,7 +81,7 @@ public class Expenses_Activity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Cursor res = myDb1.getAllData();
+                        Cursor res = myDb1.getAllSortedData();
                         if(res.getCount() == 0)
                         {
                             //show message error
